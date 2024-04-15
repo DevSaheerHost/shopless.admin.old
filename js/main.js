@@ -30,7 +30,7 @@ var database = firebase.database();
 //     }
 // });
 
-const uploadBtn = document.querySelector("#upload")
+let uploadBtn = document.querySelector("#upload")
 uploadBtn.addEventListener("click", () => {
     upload()
 })
@@ -46,12 +46,15 @@ function upload(){
     let wordToCheck = "ads/"
     let filepath = path.value
     if (filepath.includes(wordToCheck)) {
-console.log(contents)
+//console.log(contents)
         
         postRef.set({
             'product_image': imgUrl.value,
         })
-        alert("this is adds " + path.value)
+         .then(res => {
+             uploadBtn.innerHTML=("Done")
+             )}
+        alert("Your Ads uploaded to " + path.value)
 
     } else {
         postRef.push({
