@@ -53,7 +53,7 @@ function upload(){
         })
          .then(res => {
              uploadBtn.innerHTML=("Done")
-             )}
+         })
         alert("Your Ads uploaded to " + path.value)
 
     } else {
